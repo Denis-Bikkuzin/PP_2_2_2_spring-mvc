@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class CarServiceImp implements CarService {
 
-    private CarDaoImp carDaoImp;
+    private final CarDaoImp carDaoImp;
 
     @Autowired
     public CarServiceImp(CarDaoImp carDaoImp) {
@@ -18,7 +18,7 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public List<Car> getCars(Integer count) {
-        return carDaoImp.getCars(count);
+    public List<Car> getCars(int number) {
+        return carDaoImp.getCars(number);
     }
 }

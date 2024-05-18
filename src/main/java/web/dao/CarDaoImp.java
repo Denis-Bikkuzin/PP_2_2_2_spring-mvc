@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Component
 public class CarDaoImp implements CarDao {
@@ -21,13 +22,11 @@ public class CarDaoImp implements CarDao {
     ));
 
     @Override
-    public List<Car> getCars(Integer count) {
-        if (count == null || count >= 5) {
-            return cars;
-        }
-        return cars.stream()
-                .limit(Long.parseLong(String.valueOf(count)))
-                .collect(Collectors.toList());
+    public List<Car> getCars(int count) {
+        return IntStream.range(0, cars.size())
+                .filter(l -> l < count)
+                .mapToObj(cars::get)
+                .toList();
     }
 
 }
