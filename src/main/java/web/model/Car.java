@@ -12,7 +12,7 @@ public class Car {
         this.id = id;
     }
 
-    public String model() {
+    public String getModel() {
         return model;
     }
 
@@ -21,7 +21,7 @@ public class Car {
         return this;
     }
 
-    public int price() {
+    public int getPrice() {
         return price;
     }
 
@@ -30,7 +30,7 @@ public class Car {
         return this;
     }
 
-    public int id() {
+    public int getId() {
         return id;
     }
 

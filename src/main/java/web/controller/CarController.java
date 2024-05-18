@@ -15,17 +15,18 @@ import java.util.List;
 @Controller
 public class CarController {
 
-    private CarService carService;
+    private final CarService carService;
 
     @Autowired
     public CarController(CarService carService) {
         this.carService = carService;
     }
 
-    @GetMapping("/cars")
+    @GetMapping(value = "/cars")
     public String printCar(@RequestParam(value = "count",defaultValue = "5") int count, Model model) {
-        List<Car> cars = carService.getCars(count);
-        model.addAttribute("cars", cars);
+       // List<Car> cars = carService.getCars(count);
+        //model.addAttribute("cars", cars);
+        model.addAttribute("cars", carService.getCars(count));
         return "cars";
     }
 }
